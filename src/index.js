@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Login from './login';
+import Profile from './Profile';
 import Register from './Register';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './AuthContext';
@@ -11,8 +12,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
+    <header>
+    <h1 id="cloneBook">CloneBook</h1>
+    <div id="credentials">
     <Register />
     <Login />
+    <Profile />
+    </div>
+    </header>
     <App />
     </AuthProvider>
   </React.StrictMode>

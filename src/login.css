@@ -1,0 +1,20 @@
+#login{
+    text-align: left;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
+#hideLogin{
+    width:50px;
+}
+
+#loginSubmit{
+    width:70px;
+}
+
+#loginShow, #logout{
+    margin-right:10px;
+}

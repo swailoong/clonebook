@@ -5,7 +5,6 @@ import { useContext,useState,useEffect } from 'react';
 import { AuthContext } from './AuthContext';
 
 function App() {
-  const {logout} = useContext(AuthContext)
   const [result,setResult] = useState("")
   const [create,setCreate] = useState("")
   const { isLoggedIn } = useContext(AuthContext);
@@ -14,16 +13,15 @@ function App() {
     return <h1>Please login to see the posts.</h1>;
   }
 
-  function handleLogout(){
-    logout()
-  }
-
   function handleCreate(e){
     e.preventDefault();
         const form = $(e.target);
         $.ajax({
             type: "POST",
             url: form.attr("action"),
+            xhrFields: {
+              withCredentials: true
+          },
             data: form.serialize(),
             success(data) {
                 setCreate(data);
@@ -46,29 +44,49 @@ function App() {
 }; 
 
   return (
-    <div className="post">
-      <button onClick={handleLogout}>logout</button>
-      <h1>Posts</h1>
-      <form 
+    <div>
+      <h3 id="createPostTitle">Create a post</h3>
+      <form
+        id="createPostForm" 
         method="post" 
         action="http://localhost:8000/src/server/createPost.php" 
         onSubmit={handleCreate}>
-          <label>Create a post<input type="text" name="createContent" id="createContent"></input></label>
-          <label>Place your image URL<input type="text" name="createContentImg" id="createContentImg"></input></label>
+          <textarea type="text" name="createContent" id="createContent" placeholder='what is in your mind?'></textarea>
+          <input type="text" name="createContentImg" id="createContentImg" placeholder='Image URL goes here'></input>
           <input type="submit"></input>
       </form>
-      <h1>{create}</h1>
+      <p id="createPostDesc">{create}</p>
       <form 
         method="post" 
         action="http://localhost:8000/src/server/posts.php"
         onSubmit={(event) => handleSubmit(event)}
       >
-        <button type="submit" id="postSubmit">refresh</button>
+        <button type="submit" id="postSubmit">refresh posts</button>
       </form>
-      {result && result.length > 0 && result.map((element, index) => (
-        <div key={index}>
-          <h1>{element.content}</h1>
-          <img src={element.contentImg} alt="Post Content" width="300px"></img>
+      {isLoggedIn && result && result.length > 0 && result.map((element, index) => (
+        <div className="posts" key={index}>
+          <div className="posts-userDiv">
+            <img 
+            className="posts-userImg" 
+            src={element.userImg ? element.userImg : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}
+            width="30px"
+            height="30px">
+            </img>
+            <p className="posts-user">{element.user}</p>
+            <p className="date-created">
+              {
+              `${Math.floor((Date.now() - new Date((element.date).split(" ").join("T")).getTime())/1000/60/60/24)}days`
+              }
+            </p>
+          </div>
+          <h1 className='posts-content'>{element.content}</h1>
+          {element.contentImg && 
+          <img 
+            className='posts-img' 
+            src={element.contentImg} 
+            alt="Post Content">
+          </img>
+          }
         </div>
       ))}
       <h1>{result.content}</h1>

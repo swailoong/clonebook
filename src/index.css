@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#credentials{
+  display: flex;
+  justify-content:end;
+  padding:10px;
+}
+
+#cloneBook{
+  margin:0;
+  padding:0;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+  color: white;
+  vertical-align: middle;
+  padding-block: 10px;
+}

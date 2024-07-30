@@ -2,9 +2,11 @@
     header('Access-Control-Allow-Origin: http://localhost:3000');
     header('Content-Type: application/json');
     include("database.php");
+    
 
     $sql = "SELECT * FROM postdb";
     $result = mysqli_query($conn, $sql);
+    
 
     $data = array();
 
@@ -15,7 +17,8 @@
                 'user' => $row["user"],
                 'userImg' => $row["user_img"],
                 'content' => $row["post_content"],
-                'contentImg' => $row["post_img"]
+                'contentImg' => $row["post_img"],
+                'date' => $row["date_created"],
             );
         }
     }

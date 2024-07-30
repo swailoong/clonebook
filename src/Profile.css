@@ -1,0 +1,22 @@
+#profile{
+    text-align: left;
+}
+
+#profileForm{
+    display: flex;
+    flex-direction: column;
+    margin-right:10px;
+    width:200px;
+}
+
+#hideProfile{
+    width:50px;
+}
+
+#profileSubmit{
+    width:70px;
+}
+
+#profileShow{
+    margin-right:10px;
+}

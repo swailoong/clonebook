@@ -1,0 +1,21 @@
+#register{
+    text-align: left;
+}
+
+#registerForm{
+    display: flex;
+    flex-direction: column;
+    margin-right:10px;
+}
+
+#hideRegister{
+    width:50px;
+}
+
+#registerSubmit{
+    width:70px;
+}
+
+#registerShow{
+    margin-right:10px;
+}

@@ -1,8 +1,10 @@
 import $ from "jquery";
 import { useState } from 'react';
+import './Register.css'
 
 function Register(){
     
+    const [showRegister, setShowRegister] = useState(false)
     const [result, setResult] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,19 +19,29 @@ function Register(){
         });
     };
 
+    const toggleShowRegister = () =>{
+      setShowRegister(prev => !prev)
+      setResult("")
+    }
+
     return (
+        <div>
+        {showRegister ? (
         <div id="register">
-        <h1>Register Page</h1>
+        <h1 id="registerTitle">Register Page<button id="registerHide" onClick={toggleShowRegister}>hide</button></h1>
+        
         <form 
             method="post" 
             action="http://localhost:8000/src/server/register.php"
             onSubmit={(event) => handleSubmit(event)}
+            id="registerForm"
         >
             <label for="registerUsername">Username:
           <input 
             name="registerUsername" 
             id="registerUsername" 
             type="text"
+            required
           />
         </label>
         <label for="registerPassword">Password:
@@ -37,11 +49,13 @@ function Register(){
             name="registerPassword" 
             id="registerPassword" 
             type="password"
+            required
           />
         </label>
         <button type="submit" id="registerSubmit">register</button>
         </form>
         <h1>{result}</h1>
+        </div>) : <button id="registerShow" onClick={toggleShowRegister}>Register</button>}
         </div>
     )
 }

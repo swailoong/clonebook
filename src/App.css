@@ -36,3 +36,63 @@
     transform: rotate(360deg);
   }
 }
+#createPostTitle{
+  margin-left: 100px;
+}
+
+#createPostDesc{
+  margin-left: 100px;
+}
+
+#createPostForm{
+  margin-inline:100px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 50px auto;
+}
+
+#createContent{
+  grid-column-start:1;
+  grid-column-end:4;
+}
+
+#createContentImg{
+  grid-column-start:1 ;
+  grid-column-end:3;
+  grid-row-start:2 ;
+}
+
+.posts{
+  border-block: 1px lightgrey solid;
+  margin-inline: 100px;
+}
+
+.posts-content{
+  margin-block: 10px;
+}
+
+.posts-img{
+  margin-bottom: 10px;
+  width:300px ;
+}
+
+.posts-userDiv{
+  display: flex;
+  height:30px;
+  vertical-align: middle;
+}
+
+.posts-user{
+  margin-left:10px;
+  margin-block: 0;
+}
+
+#postSubmit{
+  margin-left: 100px;
+  margin-bottom: 10px;
+}
+
+.date-created{
+    margin-block: 0;
+    margin-left: auto;
+}

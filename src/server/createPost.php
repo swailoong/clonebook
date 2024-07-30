@@ -1,11 +1,15 @@
 <?php
     header('Access-Control-Allow-Origin: http://localhost:3000');
+    header('Access-Control-Allow-Credentials: true');
     include("database.php");
+    session_start();
 
     $createContent = $_POST["createContent"];
     $createContentImg = $_POST["createContentImg"];
+    $user = $_SESSION["username"];
+    $pic = $_SESSION["pic"];
 
-    $sql = "INSERT INTO postdb (post_content , post_img) VALUES ('$createContent', '$createContentImg')";
+    $sql = "INSERT INTO postdb (user, user_img, post_content, post_img) VALUES ('$user', '$pic', '$createContent', '$createContentImg')";
 
     try{
         mysqli_query($conn, $sql);
