@@ -1,5 +1,5 @@
 <?php
-    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Origin: https://clonebook-iota.vercel.app/');
     header('Access-Control-Allow-Credentials: true');
     session_destroy();
     session_start();

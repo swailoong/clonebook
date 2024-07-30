@@ -71,6 +71,7 @@ useEffect(()=>{
                     </label>
                         <button type="submit" id="loginSubmit">login</button>
                 </form>
+                <p>{result}</p>
             </div>) : 
             !isLoggedIn ? 
             <button id="loginShow" onClick={toggleShowLogin}>Login</button> : 
