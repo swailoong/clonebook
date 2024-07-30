@@ -1,5 +1,5 @@
 <?php
-    header('Access-Control-Allow-Origin: https://clonebook-iota.vercel.app/');
+    header('Access-Control-Allow-Origin: *');
     include("database.php");
 
     $registerUsername = $_POST["registerUsername"];
