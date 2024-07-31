@@ -5,9 +5,7 @@ import './login.css'
 
 function Login() {
 
-  const { login } = useContext(AuthContext);
-  const {logout} = useContext(AuthContext);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, login, logout } = useContext(AuthContext);
   const [result, setResult] = useState("");
   const [show, setShow] = useState(false)
 

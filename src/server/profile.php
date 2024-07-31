@@ -12,13 +12,18 @@
 
     if (in_array($origin, $allowed_origins)) {
         header('Access-Control-Allow-Origin: ' . $origin);
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Headers: Content-Type');
     } else {
         header('HTTP/1.1 403 Forbidden');
         exit('Forbidden');
     }
 
-    header('Access-Control-Allow-Credentials: true');
-    header('Access-Control-Allow-Headers: Content-Type');
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        header('Access-Control-Allow-Methods: POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type');
+        exit(0);
+    }
     
     session_start();
     include("database.php");
@@ -38,6 +43,7 @@
         mysqli_query($conn, $sqlDb);
         mysqli_query($conn, $sqlUser);
         $_SESSION['pic'] = $profilePic;
+        echo "picture changed";
     }
     catch(mysqli_sql_exception){
         echo "please try again later";
