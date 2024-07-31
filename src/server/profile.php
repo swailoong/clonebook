@@ -24,7 +24,16 @@
         header('Access-Control-Allow-Headers: Content-Type');
         exit(0);
     }
-    
+
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'domain' => '', // Set to your domain if needed
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'None' // For cross-origin requests
+    ]);
+
     session_start();
     include("database.php");
 
