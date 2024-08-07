@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { useState } from 'react';
-import './Register.css'
+import './styles/Register.css'
 
 function Register(){
     

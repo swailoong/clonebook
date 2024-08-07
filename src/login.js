@@ -1,7 +1,7 @@
 import $ from "jquery";
 import { useContext,useState,useEffect } from 'react';
 import { AuthContext } from './AuthContext';
-import './login.css'
+import './styles/login.css'
 
 function Login() {
 

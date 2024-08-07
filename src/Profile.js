@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { useState } from 'react';
-import './Profile.css'
+import './styles/Profile.css'
 
 function Profile(){
     

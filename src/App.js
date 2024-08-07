@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 import $ from "jquery";
 import { useContext,useState,useEffect } from 'react';
 import { AuthContext } from './AuthContext';
