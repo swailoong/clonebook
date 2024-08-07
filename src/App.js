@@ -49,7 +49,7 @@ function App() {
       <form
         id="createPostForm" 
         method="post" 
-        action="http://localhost:8000/src/server/createPost.php" 
+        action="http://localhost:8080/src/server/createPost.php" 
         onSubmit={handleCreate}>
           <textarea type="text" name="createContent" id="createContent" placeholder='what is in your mind?'></textarea>
           <input type="text" name="createContentImg" id="createContentImg" placeholder='Image URL goes here'></input>
@@ -58,7 +58,7 @@ function App() {
       <p id="createPostDesc">{create}</p>
       <form 
         method="post" 
-        action="http://localhost:8000/src/server/posts.php"
+        action="http://localhost:8080/src/server/posts.php"
         onSubmit={(event) => handleSubmit(event)}
       >
         <button type="submit" id="postSubmit">refresh posts</button>

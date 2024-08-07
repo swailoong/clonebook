@@ -35,7 +35,7 @@ function Profile(){
         
         <form 
             method="post" 
-            action="http://localhost:8000/src/server/profile.php"
+            action="http://localhost:8080/src/server/profile.php"
             onSubmit={(event) => handleSubmit(event)}
             id="profileForm"
         >

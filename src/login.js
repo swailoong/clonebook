@@ -48,7 +48,7 @@ useEffect(()=>{
                 <form
                     id="loginForm" 
                     method="post" 
-                    action="http://localhost:8000/src/server/login.php"
+                    action="http://localhost:8080/src/server/login.php"
                     onSubmit={(event) => handleSubmit(event)}
                 >
                     <label for="loginUsername">Username:
@@ -73,7 +73,7 @@ useEffect(()=>{
             </div>) : 
             !isLoggedIn ? 
             <button id="loginShow" onClick={toggleShowLogin}>Login</button> : 
-            <button id="logout" onClick={handleLogout} action="http://localhost:8000/src/server/logout.php">logout</button>}
+            <button id="logout" onClick={handleLogout} action="http://localhost:8080/src/server/logout.php">logout</button>}
         </div>
   )
 }

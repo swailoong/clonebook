@@ -32,7 +32,7 @@ function Register(){
         
         <form 
             method="post" 
-            action="http://localhost:8000/src/server/register.php"
+            action="http://localhost:8080/src/server/register.php"
             onSubmit={(event) => handleSubmit(event)}
             id="registerForm"
         >
